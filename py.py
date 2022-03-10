@@ -3,19 +3,17 @@ import logging
 logging.basicConfig(
     level=logging.DEBUG, format="%(asctime)s - %(levelname)s | > %(message)s"
 )
-import socket, uuid, threading, os, tqdm
+
+import socket, uuid, threading, os, tqdm, time, sokit, json
 
 os.system("cls")
 logging.debug("Start of program")
 
 PORT = 80
 
-
-class soket:
-    def __init__(self) -> None:
-        logging.du
+soket = sokit.soket()
 
 
-class indexing(soket):
+class indexing:
     def __init__(self) -> None:
         pass
