@@ -9,4 +9,4 @@ class soket:
     def __init__(self) -> None:
         logging.debug("Start of soket.__init__()")
         self.IP_ADDRESS = socket.gethostbyname(socket.gethostname())
-        self.PORT = 
+        self.PORT = 80
