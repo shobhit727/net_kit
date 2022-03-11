@@ -14,8 +14,4 @@ logging.debug("Start of program")
 PORT = 80
 
 soket = sokit.soket()
-
-
-class indexing:
-    def __init__(self) -> None:
-        pass
+index = index_mangar.indexing()
