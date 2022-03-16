@@ -11,14 +11,27 @@ class indexing:
         self.index = {}
         self.config = {}
         self.load_config()
-        self.load_index()
+        # self.load_index()
         logging.info("Ending indexing.__init__")
 
     def load_config(self) -> None:
         logging.info("Starting indexing.load_config()")
-        with open("config.json", "r") as f:
-            self.config = json.load(f)
-        logging.info("Ending indexing.load_config()")
+        try:
+            with open("./config.json", "r") as f:
+                self.config = json.load(f)
+            logging.info("Ending indexing.load_config()")
+
+        except FileNotFoundError:
+            logging.error("config.json not found")
+            with open("./config.json", "x") as f:
+                self.config = {}
+                f.write(json.dumps(self.config))
+
+        except Exception as e:
+            logging.error(e)
+            logging.error("Ending indexing.load_config()")
+
+        # logging.info("Ending indexing.load_config()")
 
     def load_index(self) -> None:
         logging.info("Starting indexing.load_index()")
