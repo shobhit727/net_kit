@@ -20,8 +20,8 @@ class indexing:
             with open("./config.json", "r") as f:
                 try:
                     self.config = json.load(f)
-                except Exception as e:
-                    logging.error(e)
+                except:
+                    logging.error("Error loading config.json")
 
         except FileNotFoundError:
             logging.error("config.json not found")
