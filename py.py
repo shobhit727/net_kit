@@ -1,7 +1,7 @@
 import logging
 
 logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s - %(levelname)s | > %(message)s"
+    level=logging.DEBUG, format="%(asctime)s - %(levelname)s |  > %(message)s"
 )
 
 import socket, uuid, threading, os, tqdm, time, sokit, json

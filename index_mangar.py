@@ -17,11 +17,13 @@ class indexing:
     def load_config(self) -> None:
         logging.info("Starting indexing.load_config()")
         try:
-            with open("./config.json", "r") as f:
+            with open("./config.json", "r+") as f:
                 try:
                     self.config = json.load(f)
-                except:
-                    logging.error("Error loading config.json")
+                except json.JSONDecodeError:
+                    logging.error("Error loading config.json > JSONDecodeError")
+                    self.config = {}
+                    f.write(json.dumps(self.config))
 
         except FileNotFoundError:
             logging.error("config.json not found")
