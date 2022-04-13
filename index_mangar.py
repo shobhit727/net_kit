@@ -1,43 +1,37 @@
-import logging, os, json
+import logging, os, json, configparser
 
 logging.basicConfig(
     level=logging.DEBUG, format="%(asctime)s - %(levelname)s |   > %(message)s"
 )
+CONFIG = configparser.ConfigParser()
 
 
 class indexing:
     def __init__(self) -> None:
         logging.info("Starting indexing.__init__")
-        self.index = {}
-        self.config = {}
         self.load_config()
+        self.index = {}
         # self.load_index()
         logging.info("Ending indexing.__init__")
 
     def load_config(self) -> None:
         logging.info("Starting indexing.load_config()")
         try:
-            with open("./config.json", "r+") as f:
-                try:
-                    self.config = json.load(f)
-                except json.JSONDecodeError:
-                    logging.error("Error loading config.json > JSONDecodeError")
-                    self.config = {}
-                    f.write(json.dumps(self.config))
-
-        except FileNotFoundError:
-            logging.error("config.json not found")
-            with open("./config.json", "x") as f:
-                self.config = {}
-                f.write(json.dumps(self.config))
-
-        except Exception as e:
-            logging.critical(e)
-
+            with open("config.ini"):
+                pass
+        except:
+            logging.info("config.ini not found, creating new one")
+            with open("config.ini", "w") as configfile:
+                CONFIG.add_section("index")
+                CONFIG.set("index", "index_path", f"{os.getcwd()}\\index.json")
+                CONFIG.write(configfile)
+        CONFIG.read(os.path.join(os.getcwd(), "config.ini"))
+        self.config = CONFIG["index"]
         logging.info("Ending indexing.load_config()")
 
     def load_index(self) -> None:
-        logging.info("Starting indexing.load_index()")
+        pass
+        """logging.info("Starting indexing.load_index()")
         with open(self.config["index"], "r") as f:
             self.index = json.load(f)
-        logging.info("Ending indexing.load_index()")
+        logging.info("Ending indexing.load_index()")"""
