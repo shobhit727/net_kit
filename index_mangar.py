@@ -15,7 +15,7 @@ class indexing:
         logging.info("Ending indexing.__init__")
 
     def load_config(self) -> None:
-        logging.info("Starting indexing.load_config()")
+        logging.info("Starting indexing.load_config()")  #       my code in python
         try:
             with open("config.ini"):
                 pass
