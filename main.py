@@ -15,5 +15,5 @@ PORT = 80
 
 soket = sokit.soket()
 index = index_mangar.indexing()
-soket = sokit.soket()
+
 # index.log()
