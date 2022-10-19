@@ -1,4 +1,11 @@
 import logging, os
-import sokit, index_mangar
+import sokit, logging_manger
+from index_manger import *
 
-os.system("cls")
+# os.system("cls")
+
+"""logging.basicConfig(
+    level=logging.DEBUG, format="%(asctime)s - %(levelname)s |   > %(message)s"
+)
+"""
+index = set_up()

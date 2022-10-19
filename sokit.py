@@ -1,6 +1,14 @@
 import logging, socket
+import logging_manger
 
 logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s - %(levelname)s |   > %(message)s"
+    level=logging.DEBUG,
+    format="%(asctime)s - %(name)s - %(levelname)s |   > %(message)s",
 )
-kitlog = logging.getLogger("sokit")
+
+logger = logging.getLogger("sokit")
+format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s |   > %(message)s")
+logger.setLevel(logging.DEBUG)
+
+
+#       to be completed
